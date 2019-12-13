@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import ui.ResizableCanvas?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.GridController">
+   <top>
+       <MenuBar BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="Edit">
+               <MenuItem mnemonicParsing="false" text="Reset Map" onAction="#onCanvasReset"/>
+               <MenuItem mnemonicParsing="false" text="Clear Map" onAction="#onCanvasClear"/>
+           </Menu>
+           <Menu mnemonicParsing="false" text="Path">
+               <MenuItem mnemonicParsing="false" text="Uniform Cost (u)" onAction="#uniformCost"/>
+               <MenuItem mnemonicParsing="false" text="Greedy (g)" onAction="#greedySearch"/>
+               <MenuItem mnemonicParsing="false" text="A* (a)" onAction="#aStarSearch"/>
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+      <StackPane fx:id="wrappingPane" BorderPane.alignment="CENTER">
+          <ResizableCanvas fx:id="canvasPane"
+                           prefWidth="100" prefHeight="100"
+                           width="100" height="100"
+                           onMouseClicked="#onCanvasClicked"
+                           onMouseDragged="#onCanvasDragged"
+          />
+      </StackPane>
+   </center>
+</BorderPane>
